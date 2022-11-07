@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { createNewProductAction } from "../actions/actionsProduct";
 import { useDispatch, useSelector } from "react-redux";
 
 export const NewProduct = () => {
+	const [name, setName] = useState("");
+	const [price, setPrice] = useState(0);
+
 	const dispatch = useDispatch();
 
-	const addProduct = () => dispatch(createNewProductAction());
+	const addProduct = (product) => dispatch(createNewProductAction(product));
 
 	const submitNewProduct = (e) => {
 		e.preventDefault();
 
-		addProduct();
+		if (name.trim() === "" || price <= 0) return;
+
+		addProduct({
+			name,
+			price,
+		});
 	};
 
 	return (
@@ -29,6 +37,8 @@ export const NewProduct = () => {
 								className="form-control"
 								placeholder="Product Name"
 								name="name"
+								value={name}
+								onChange={(e) => setName(e.target.value)}
 							/>
 						</div>
 
@@ -39,6 +49,8 @@ export const NewProduct = () => {
 								className="form-control"
 								placeholder="Product Price"
 								name="price"
+								value={price}
+								onChange={(e) => setPrice(Number(e.target.value))}
 							/>
 						</div>
 
