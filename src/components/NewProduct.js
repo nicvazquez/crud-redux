@@ -8,6 +8,9 @@ export const NewProduct = () => {
 
 	const dispatch = useDispatch();
 
+	const loading = useSelector((state) => state.products.loading);
+	const error = useSelector((state) => state.products.error);
+
 	const addProduct = (product) => dispatch(createNewProductAction(product));
 
 	const submitNewProduct = (e) => {
@@ -24,12 +27,12 @@ export const NewProduct = () => {
 	return (
 		<div className="row justify-content-center">
 			<div className="col-md-8">
-				<div className="card">
+				<div className="card p-4">
 					<div className="card-body">
 						<h2 className="text-center mb-4 font-weight-bold">Add New Product</h2>
 					</div>
 
-					<form className="p-4" onSubmit={submitNewProduct}>
+					<form onSubmit={submitNewProduct}>
 						<div className="form-group">
 							<label>Product Name</label>
 							<input
@@ -61,6 +64,9 @@ export const NewProduct = () => {
 							Add
 						</button>
 					</form>
+
+					{loading && <p>Loading ...</p>}
+					{error && <p className="alert alert-danger p-2 mt-4 text-center">Error</p>}
 				</div>
 			</div>
 		</div>
