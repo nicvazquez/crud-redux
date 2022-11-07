@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createNewProductAction } from "../actions/actionsProduct";
 import { useDispatch, useSelector } from "react-redux";
 
 export const NewProduct = () => {
+	let navigate = useNavigate();
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState(0);
 
 	const dispatch = useDispatch();
 
 	const loading = useSelector((state) => state.products.loading);
-	const error = useSelector((state) => state.products.error);
+	// const error = useSelector((state) => state.products.error);
 
 	const addProduct = (product) => dispatch(createNewProductAction(product));
 
@@ -22,6 +24,8 @@ export const NewProduct = () => {
 			name,
 			price,
 		});
+
+		navigate("/");
 	};
 
 	return (
@@ -66,7 +70,7 @@ export const NewProduct = () => {
 					</form>
 
 					{loading && <p>Loading ...</p>}
-					{error && <p className="alert alert-danger p-2 mt-4 text-center">Error</p>}
+					{/* {error && <p className="alert alert-danger p-2 mt-4 text-center">Error</p>} */}
 				</div>
 			</div>
 		</div>
