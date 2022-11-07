@@ -22,4 +22,7 @@ const addProductSuccess = (product) => ({
 	payload: product,
 });
 
-const addProductError = () => ({});
+const addProductError = (state) => ({
+	type: ADD_PRODUCT_ERROR,
+	payload: state,
+});
