@@ -89,7 +89,10 @@ export function deleteProductAction(id) {
 		try {
 			await axiosClient.delete(`/products/${id}`);
 			dispatch(deleteProductSuccess());
-		} catch (error) {}
+		} catch (error) {
+			console.log(error);
+			dispatch(deleteProductError());
+		}
 	};
 }
 
