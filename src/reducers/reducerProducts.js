@@ -71,7 +71,7 @@ export default function (state = initialState, action) {
 		case GET_PRODUCT_EDIT:
 			return {
 				...state,
-				deleteproduct: action.payload,
+				editproduct: action.payload,
 			};
 
 		default:
