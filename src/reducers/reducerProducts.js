@@ -8,6 +8,7 @@ import {
 	GET_PRODUCT_DELETE,
 	PRODUCT_DELETED_SUCCESS,
 	PRODUCT_DELETED_ERROR,
+	GET_PRODUCT_EDIT,
 } from "../types";
 
 // Each reducer has its own state
@@ -65,6 +66,12 @@ export default function (state = initialState, action) {
 					(product) => product.id !== state.deleteproduct
 				),
 				deleteproduct: null,
+			};
+
+		case GET_PRODUCT_EDIT:
+			return {
+				...state,
+				deleteproduct: action.payload,
 			};
 
 		default:
