@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { createNewProductAction } from "../actions/actionsProduct";
-import { showAlert } from "../actions/actionsAlert";
+import { showAlertAction, hideAlertAction } from "../actions/actionsAlert";
 
 export const NewProduct = () => {
 	let navigate = useNavigate();
@@ -26,10 +26,12 @@ export const NewProduct = () => {
 				msg: "Both fields are required",
 				classes: "alert alert-danger text-center text-uppercase p3",
 			};
-			dispatch(showAlert(alert));
+			dispatch(showAlertAction(alert));
 
 			return;
 		}
+
+		dispatch(hideAlertAction());
 
 		addProduct({
 			name,

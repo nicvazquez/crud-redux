@@ -134,7 +134,10 @@ export function editProductAction(product) {
 		try {
 			await axiosClient.put(`/products/${product.id}`, product);
 			dispatch(editProductSuccess(product));
-		} catch (error) {}
+		} catch (error) {
+			console.log(error);
+			dispatch(editProductError());
+		}
 	};
 }
 
@@ -145,4 +148,9 @@ const editProduct = () => ({
 const editProductSuccess = (product) => ({
 	type: PRODUCT_EDITED_SUCCESS,
 	payload: product,
+});
+
+const editProductError = () => ({
+	type: PRODUCT_EDITED_ERROR,
+	payload: true,
 });

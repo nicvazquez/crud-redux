@@ -4,6 +4,16 @@
       "name": "Rib Eye 400g",
       "price": "700",
       "id": 4
+    },
+    {
+      "name": "Juguito",
+      "price": 23,
+      "id": 5
+    },
+    {
+      "name": "Meal",
+      "price": 35,
+      "id": 6
     }
   ]
 }
