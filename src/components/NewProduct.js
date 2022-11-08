@@ -13,7 +13,8 @@ export const NewProduct = () => {
 	const dispatch = useDispatch();
 
 	const loading = useSelector((state) => state.products.loading);
-	// const error = useSelector((state) => state.products.error);
+	const error = useSelector((state) => state.products.error);
+	const alert = useSelector((state) => state.alert.alert);
 
 	const addProduct = (product) => dispatch(createNewProductAction(product));
 
@@ -45,6 +46,8 @@ export const NewProduct = () => {
 					<div className="card-body">
 						<h2 className="text-center mb-4 font-weight-bold">Add New Product</h2>
 					</div>
+
+					{alert && <p className={alert.classes}>{alert.msg}</p>}
 
 					<form onSubmit={submitNewProduct}>
 						<div className="form-group">
@@ -80,7 +83,7 @@ export const NewProduct = () => {
 					</form>
 
 					{loading && <p>Loading ...</p>}
-					{/* {error && <p className="alert alert-danger p-2 mt-4 text-center">Error</p>} */}
+					{error && <p className="alert alert-danger p-2 mt-4 text-center">Error</p>}
 				</div>
 			</div>
 		</div>
