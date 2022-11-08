@@ -51,10 +51,28 @@ const addProductError = (state) => ({
 export function getProductsAction() {
 	return async (dispatch) => {
 		dispatch(downloadProducts());
+
+		try {
+			const response = await axiosClient.get("/products");
+			dispatch(productsDownloadSuccessful(response.data));
+		} catch (error) {
+			console.log(error);
+			dispatch(productsDownloadError());
+		}
 	};
 }
 
 const downloadProducts = () => ({
 	type: START_PRODUCTS_DOWNLOAD,
+	payload: true,
+});
+
+const productsDownloadSuccessful = (products) => ({
+	type: DOWNLOAD_PRODUCTS_SUCCESS,
+	payload: products,
+});
+
+const productsDownloadError = () => ({
+	type: DOWNLOAD_PRODUCTS_ERROR,
 	payload: true,
 });

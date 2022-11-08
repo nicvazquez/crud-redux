@@ -1,69 +1,29 @@
 {
-  "products": [
-    {
-      "id": 1,
-      "nombre": "Carrot Juice",
-      "precio": "31111"
-    },
-    {
-      "id": 2,
-      "nombre": "Orange Juice",
-      "precio": "1"
-    },
-    {
-      "nombre": "Orange Juice",
-      "precio": "300",
-      "id": 3
-    },
-    {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
-    },
-    {
-      "nombre": "Strawberry Juice",
-      "precio": "200",
-      "id": 5
-    },
-    {
-      "name": "asd",
-      "price": 232,
-      "id": 6
-    },
-    {
-      "name": "asd",
-      "price": 1213,
-      "id": 7
-    },
-    {
-      "name": "asd",
-      "price": 123,
-      "id": 8
-    },
-    {
-      "name": "asd",
-      "price": 123,
-      "id": 9
-    },
-    {
-      "name": "asd",
-      "price": 123,
-      "id": 10
-    },
-    {
-      "name": "asd",
-      "price": 123,
-      "id": 11
-    },
-    {
-      "name": "asd",
-      "price": 123,
-      "id": 12
-    },
-    {
-      "name": "asd",
-      "price": 123,
-      "id": 13
-    }
-  ]
+	"products": [
+		{
+			"id": 1,
+			"name": "Carrot Juice",
+			"price": "310"
+		},
+		{
+			"id": 2,
+			"name": "Orange Juice",
+			"price": "1"
+		},
+		{
+			"name": "Orange Juice",
+			"price": "300",
+			"id": 3
+		},
+		{
+			"name": "Rib Eye 800g",
+			"price": "200",
+			"id": 4
+		},
+		{
+			"name": "Strawberry Juice",
+			"price": "200",
+			"id": 5
+		}
+	]
 }
