@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createNewProductAction } from "../actions/actionsProduct";
 import { useDispatch, useSelector } from "react-redux";
+
+import { createNewProductAction } from "../actions/actionsProduct";
+import { showAlert } from "../actions/actionsAlert";
 
 export const NewProduct = () => {
 	let navigate = useNavigate();
@@ -18,7 +20,15 @@ export const NewProduct = () => {
 	const submitNewProduct = (e) => {
 		e.preventDefault();
 
-		if (name.trim() === "" || price <= 0) return;
+		if (name.trim() === "" || price <= 0) {
+			const alert = {
+				msg: "Both fields are required",
+				classes: "alert alert-danger text-center text-uppercase p3",
+			};
+			dispatch(showAlert(alert));
+
+			return;
+		}
 
 		addProduct({
 			name,
