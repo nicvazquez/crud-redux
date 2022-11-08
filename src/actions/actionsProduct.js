@@ -5,6 +5,9 @@ import {
 	START_PRODUCTS_DOWNLOAD,
 	DOWNLOAD_PRODUCTS_SUCCESS,
 	DOWNLOAD_PRODUCTS_ERROR,
+	GET_PRODUCT_DELETE,
+	PRODUCT_DELETED_SUCCESS,
+	PRODUCT_DELETED_ERROR,
 } from "../types";
 import axiosClient from "../config/axios";
 import Swal from "sweetalert2";
@@ -77,4 +80,17 @@ const productsDownloadSuccessful = (products) => ({
 const productsDownloadError = () => ({
 	type: DOWNLOAD_PRODUCTS_ERROR,
 	payload: true,
+});
+
+export function deleteProductAction(id) {
+	return async (dispatch) => {
+		dispatch(getProductDelete(id));
+
+		console.log(id);
+	};
+}
+
+const getProductDelete = (id) => ({
+	type: GET_PRODUCT_DELETE,
+	payload: id,
 });

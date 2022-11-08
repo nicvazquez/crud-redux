@@ -5,6 +5,9 @@ import {
 	START_PRODUCTS_DOWNLOAD,
 	DOWNLOAD_PRODUCTS_SUCCESS,
 	DOWNLOAD_PRODUCTS_ERROR,
+	GET_PRODUCT_DELETE,
+	PRODUCT_DELETED_SUCCESS,
+	PRODUCT_DELETED_ERROR,
 } from "../types";
 
 // Each reducer has its own state
@@ -12,6 +15,7 @@ const initialState = {
 	products: [],
 	error: null,
 	loading: false,
+	deleteproduct: null,
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -45,6 +49,12 @@ export default function (state = initialState, action) {
 				loading: false,
 				error: null,
 				products: action.payload,
+			};
+
+		case GET_PRODUCT_DELETE:
+			return {
+				...state,
+				deleteproduct: action.payload,
 			};
 
 		default:
