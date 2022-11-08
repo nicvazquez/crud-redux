@@ -129,16 +129,20 @@ const getProductAction = (product) => ({
 
 export function editProductAction(product) {
 	return async (dispatch) => {
-		dispatch(editProduct(product));
+		dispatch(editProduct());
 
 		try {
-			const response = await axiosClient.put(`/products/${product.id}`, product);
-			console.log(response);
+			await axiosClient.put(`/products/${product.id}`, product);
+			dispatch(editProductSuccess(product));
 		} catch (error) {}
 	};
 }
 
-const editProduct = (product) => ({
+const editProduct = () => ({
 	type: START_PRODUCT_EDITION,
+});
+
+const editProductSuccess = (product) => ({
+	type: PRODUCT_EDITED_SUCCESS,
 	payload: product,
 });
