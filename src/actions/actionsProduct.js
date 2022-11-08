@@ -59,7 +59,7 @@ export function getProductsAction() {
 			setTimeout(async () => {
 				const response = await axiosClient.get("/products");
 				dispatch(productsDownloadSuccessful(response.data));
-			}, 1000);
+			}, 500);
 		} catch (error) {
 			console.log(error);
 			dispatch(productsDownloadError());
@@ -86,11 +86,23 @@ export function deleteProductAction(id) {
 	return async (dispatch) => {
 		dispatch(getProductDelete(id));
 
-		console.log(id);
+		try {
+			await axiosClient.delete(`/products/${id}`);
+			dispatch(deleteProductSuccess());
+		} catch (error) {}
 	};
 }
 
 const getProductDelete = (id) => ({
 	type: GET_PRODUCT_DELETE,
 	payload: id,
+});
+
+const deleteProductSuccess = () => ({
+	type: PRODUCT_DELETED_SUCCESS,
+});
+
+const deleteProductError = () => ({
+	type: PRODUCT_DELETED_ERROR,
+	payload: true,
 });
