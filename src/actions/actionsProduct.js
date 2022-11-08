@@ -53,8 +53,10 @@ export function getProductsAction() {
 		dispatch(downloadProducts());
 
 		try {
-			const response = await axiosClient.get("/products");
-			dispatch(productsDownloadSuccessful(response.data));
+			setTimeout(async () => {
+				const response = await axiosClient.get("/products");
+				dispatch(productsDownloadSuccessful(response.data));
+			}, 1000);
 		} catch (error) {
 			console.log(error);
 			dispatch(productsDownloadError());
