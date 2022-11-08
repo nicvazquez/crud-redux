@@ -1,4 +1,11 @@
-import { ADD_PRODUCT, ADD_PRODUCT_SUCCESS, ADD_PRODUCT_ERROR } from "../types";
+import {
+	ADD_PRODUCT,
+	ADD_PRODUCT_SUCCESS,
+	ADD_PRODUCT_ERROR,
+	START_PRODUCTS_DOWNLOAD,
+	DOWNLOAD_PRODUCTS_SUCCESS,
+	DOWNLOAD_PRODUCTS_ERROR,
+} from "../types";
 
 // Each reducer has its own state
 const initialState = {
@@ -10,6 +17,7 @@ const initialState = {
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (state = initialState, action) {
 	switch (action.type) {
+		case START_PRODUCTS_DOWNLOAD:
 		case ADD_PRODUCT:
 			return {
 				...state,
